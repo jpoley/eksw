@@ -12,5 +12,7 @@ a working Text Editor that you like - VS Code recommended.
 
 local install of Git (and if on windows gitbash)
 
+an account on github with ssh keys installed if possible
+
 
 
