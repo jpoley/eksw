@@ -2,17 +2,19 @@
 Things you will want to have setup prior to doing this intro workshop
 
 
-An active AWS Account (please take basic steps to lock it down)
+1. An active AWS Account (please take basic steps to lock it down)
 
-A working install of the AWS CLI (v2 if possible).
+2.  A working install of the AWS CLI (v2 if possible).
 
-an AWS IAM User (that is NOT the root user) but one that has power user / admin  type rights
+3.  an AWS IAM User (that is NOT the root user) but one that has power user / admin  type rights
 
-a working Text Editor that you like - VS Code recommended.
+4.  a working Text Editor that you like - VS Code recommended.
 
-local install of Git (and if on windows gitbash)
+5. local install of Git (and if on windows gitbash)
 
-an account on github with ssh keys installed if possible
+6. an account on github with ssh keys installed if possible
 
+7. github cli  https://cli.github.com/
 
+8. eksctl https://eksctl.io/
 
