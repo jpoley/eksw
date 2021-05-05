@@ -18,3 +18,4 @@ Things you will want to have setup prior to doing this intro workshop
 
 8. eksctl https://eksctl.io/
 
+9. jq command line json parser https://stedolan.github.io/jq/

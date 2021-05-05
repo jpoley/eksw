@@ -1,0 +1,1 @@
+aws cloudformation create-stack  --stack-name=aws-pug-vpc  --template-body  file://setup.yaml --debug
