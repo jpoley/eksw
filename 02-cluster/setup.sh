@@ -1,6 +1,7 @@
 
 #remove old file
 rm -rf eks.yaml 
+. ../01-vpc/export.sh
 
 tee ./eks.yaml << EOF
 apiVersion: eksctl.io/v1alpha5
@@ -23,7 +24,7 @@ vpc:
 nodeGroups:
   - name: ng-1
     instanceType: t3.large
-    desiredCapacity: 2
+    desiredCapacity: 1
     volumeSize: 80
     ssh:
       allow: true # will use ~/.ssh/id_rsa.pub as the default ssh key
@@ -32,7 +33,7 @@ nodeGroups:
     desiredCapacity: 2
     volumeSize: 100
     ssh:
-      publicKeyPath: ~/.ssh/id_rsa.pub
+       publicKeyPath: ~/.ssh/id_rsa.pub
 cloudWatch:
   clusterLogging:
     enableTypes: ["api", "audit", "authenticator", "controllerManager", "scheduler"]

@@ -9,3 +9,4 @@ export AZ_C=`aws ec2 describe-subnets  --filters Name=tag:Name,Values=aws-pug-vp
 export AZ_D=`aws ec2 describe-subnets  --filters Name=tag:Name,Values=aws-pug-vpc-Public-D| jq -r '.Subnets[].AvailabilityZone'`
 export SG=`aws ec2 describe-security-groups --filters Name=tag:aws:cloudformation:stack-name,Values=aws-pug-vpc | jq -r '.SecurityGroups[].GroupId'`
 
+export MY_IP=`curl http://ipinfo.io/ip`
