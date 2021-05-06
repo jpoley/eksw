@@ -34,37 +34,41 @@ Resources:
     Properties:
       VpcId: !Ref VPC
       CidrBlock: 10.1.1.0/24
+      MapPublicIpOnLaunch: true
       AvailabilityZone: !Select [0, !GetAZs ] # Get the first AZ in the list
       Tags:
         - Key: Name
-          Value: !Sub ${AWS::StackName}-Public-A
+          Value: !Join ["", [!Ref "AWS::StackName", "-Public-A"]]
   PublicSubnetB:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref VPC
       CidrBlock: 10.1.2.0/24
+      MapPublicIpOnLaunch: true
       AvailabilityZone: !Select [1, !GetAZs ] # Get the second AZ in the list
       Tags:
         - Key: Name
-          Value: !Sub ${AWS::StackName}-Public-B
+          Value: !Join ["", [!Ref "AWS::StackName", "-Public-B"]]
   PublicSubnetC:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref VPC
       CidrBlock: 10.1.3.0/24
+      MapPublicIpOnLaunch: true
       AvailabilityZone: !Select [2, !GetAZs ] # Get the thrid AZ in the list
       Tags:
         - Key: Name
-          Value: !Sub ${AWS::StackName}-Public-C
+          Value: !Join ["", [!Ref "AWS::StackName", "-Public-C"]]
   PublicSubnetD:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref VPC
       CidrBlock: 10.1.4.0/24
+      MapPublicIpOnLaunch: true
       AvailabilityZone: !Select [3, !GetAZs ] # Get the forth AZ in the list
       Tags:
         - Key: Name
-          Value: !Sub ${AWS::StackName}-Public-D
+          Value: !Join ["", [!Ref "AWS::StackName", "-Public-D"]]
 
   # Some route tables for our subnets:
   PublicRouteTable:
@@ -107,17 +111,15 @@ Resources:
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
+        GroupName: aws-pug-sg
         GroupDescription: Allow SSH only from my IP
-        VpcId:
-          Ref: !Ref VPC
+        VpcId: !Ref VPC
         SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
           CidrIp: $MY_IP/32
-        SecurityGroupEgress:
-        - IpProtocol: any
-          CidrIp: 0.0.0.0/0
+
 EOF
 
 
