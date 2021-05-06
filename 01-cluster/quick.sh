@@ -1,1 +1,1 @@
-eksctl create cluster --managed --spot --nodes 2 --enable-ssm --instance-types t3.medium --vpc-nat-mode Disable
+eksctl create cluster --managed --spot --nodes 3 --enable-ssm --instance-types t3.large --vpc-nat-mode Disable 
