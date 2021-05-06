@@ -6,24 +6,36 @@ metadata:
   region: us-east-1
 
 vpc:
+  cidr: 10.1.0.0/16
+  publicAccessCIDRs: ["151.199.255.83/32"]
+  clusterEndpoints:
+    privateAccess: true
+    publicAccess: true
+  
   subnets:
     public:
-      us-east-1a: { id: subnet-0361b32648557f0aa }
-      us-east-1b: { id: subnet-0065ffdd0a57cee53 }
-      us-east-1c: { id: subnet-08a73b70f170c826e }
-      us-east-1d: { id: subnet-09f402f5435a7d24e }
+      us-east-1a: { id: subnet-05654956edbb1a019 }
+      us-east-1b: { id: subnet-04d9b71c6bb11a9d7 }
+      us-east-1c: { id: subnet-0a8a9691e8fc6c508 }
+      us-east-1d: { id: subnet-0f0305a02c27ab53e }
 
 
 nodeGroups:
   - name: ng-1
     instanceType: t3.large
-    desiredCapacity: 2
+    desiredCapacity: 1
     volumeSize: 80
     ssh:
       allow: true # will use ~/.ssh/id_rsa.pub as the default ssh key
+      enableSsm: true
   - name: ng-2
-    instanceType: t3.large
+    instanceType: t3.medium
     desiredCapacity: 2
     volumeSize: 100
     ssh:
-      publicKeyPath: ~/.ssh/id_rsa.pub
+       publicKeyPath: ~/.ssh/id_rsa.pub
+       enableSsm: true
+
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["api", "audit", "authenticator", "controllerManager", "scheduler"]

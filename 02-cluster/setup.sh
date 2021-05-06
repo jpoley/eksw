@@ -12,7 +12,12 @@ metadata:
   region: us-east-1
 
 vpc:
+  cidr: 10.1.0.0/16
   publicAccessCIDRs: ["$MY_IP/32"]
+  clusterEndpoints:
+    privateAccess: true
+    publicAccess: true
+  
   subnets:
     public:
       $AZ_A: { id: $SUBNET_A }
@@ -28,12 +33,15 @@ nodeGroups:
     volumeSize: 80
     ssh:
       allow: true # will use ~/.ssh/id_rsa.pub as the default ssh key
+      enableSsm: true
   - name: ng-2
     instanceType: t3.medium
     desiredCapacity: 2
     volumeSize: 100
     ssh:
        publicKeyPath: ~/.ssh/id_rsa.pub
+       enableSsm: true
+
 cloudWatch:
   clusterLogging:
     enableTypes: ["api", "audit", "authenticator", "controllerManager", "scheduler"]
