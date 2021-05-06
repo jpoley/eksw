@@ -9,3 +9,5 @@ https://awsworkshop.io/categories/containers/
 https://github.com/magnologan/awesome-k8s-security
 
 https://awsworkshop.io/categories/containers/
+
+https://docs.bitnami.com/aws/apps/
