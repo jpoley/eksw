@@ -1,4 +1,7 @@
 
+#remove old file
+rm -rf eks.yaml 
+
 tee ./eks.yaml << EOF
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
