@@ -8,10 +8,10 @@ metadata:
 vpc:
   subnets:
     public:
-      us-east-1a: { id: subnet-09c542da6deb29ef7 }
-      us-east-1b: { id: subnet-01bfad3d1bfcd645e }
-      us-east-1a: { id: subnet-0c4e54d5507c6744d }
-      us-east-1b: { id: subnet-03a9c7c067743c15f }
+      us-east-1a: { id: subnet-0361b32648557f0aa }
+      us-east-1b: { id: subnet-0065ffdd0a57cee53 }
+      us-east-1c: { id: subnet-08a73b70f170c826e }
+      us-east-1d: { id: subnet-09f402f5435a7d24e }
 
 
 nodeGroups:

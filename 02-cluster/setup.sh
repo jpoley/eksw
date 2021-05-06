@@ -11,6 +11,7 @@ metadata:
   region: us-east-1
 
 vpc:
+  publicAccessCIDRs: ["$MY_IP/32"]
   subnets:
     public:
       $AZ_A: { id: $SUBNET_A }

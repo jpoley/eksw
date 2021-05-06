@@ -1,10 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
 
-# This CloudFormation template deploys a basic VPC / Network.  Specifically:
-# It deploys a VPC with 4 subnets (2 public, 2 private) across 2 Availability Zones
-# A NAT Gateway is used to provide egress for private subnets.
-# The VPC and subnets are exported for use by other stacks.
-
 Resources:
   # First, a VPC:
   VPC:
@@ -28,7 +23,7 @@ Resources:
       VpcId: !Ref VPC
       InternetGatewayId: !Ref InternetGateway
 
-  # Now some subnets, 2 public and 2 private:
+  # Now some subnets, 4 public
   PublicSubnetA:
     Type: AWS::EC2::Subnet
     Properties:
@@ -52,7 +47,7 @@ Resources:
     Properties:
       VpcId: !Ref VPC
       CidrBlock: 10.1.3.0/24
-      AvailabilityZone: !Select [2, !GetAZs ] # Get the first AZ in the list
+      AvailabilityZone: !Select [2, !GetAZs ] # Get the thrid AZ in the list
       Tags:
         - Key: Name
           Value: !Sub ${AWS::StackName}-Public-C
@@ -61,7 +56,7 @@ Resources:
     Properties:
       VpcId: !Ref VPC
       CidrBlock: 10.1.4.0/24
-      AvailabilityZone: !Select [3, !GetAZs ] # Get the second AZ in the list
+      AvailabilityZone: !Select [3, !GetAZs ] # Get the forth AZ in the list
       Tags:
         - Key: Name
           Value: !Sub ${AWS::StackName}-Public-D
