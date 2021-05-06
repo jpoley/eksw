@@ -23,7 +23,7 @@ vpc:
 nodeGroups:
   - name: ng-1
     instanceType: t3.large
-    desiredCapacity: 1
+    desiredCapacity: 2
     volumeSize: 80
     ssh:
       allow: true # will use ~/.ssh/id_rsa.pub as the default ssh key
