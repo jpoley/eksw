@@ -8,5 +8,5 @@ export AZ_B=`aws ec2 describe-subnets  --filters Name=tag:Name,Values=aws-pug-vp
 export AZ_C=`aws ec2 describe-subnets  --filters Name=tag:Name,Values=aws-pug-vpc-Public-C| jq -r '.Subnets[].AvailabilityZone'`
 export AZ_D=`aws ec2 describe-subnets  --filters Name=tag:Name,Values=aws-pug-vpc-Public-D| jq -r '.Subnets[].AvailabilityZone'`
 
-export MY_IP=`curl http://ipinfo.io/ip`
+
 
