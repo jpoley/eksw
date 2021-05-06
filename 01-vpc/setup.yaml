@@ -52,7 +52,7 @@ Resources:
     Properties:
       VpcId: !Ref VPC
       CidrBlock: 10.1.3.0/24
-      AvailabilityZone: !Select [0, !GetAZs ] # Get the first AZ in the list
+      AvailabilityZone: !Select [2, !GetAZs ] # Get the first AZ in the list
       Tags:
         - Key: Name
           Value: !Sub ${AWS::StackName}-Public-C
@@ -61,7 +61,7 @@ Resources:
     Properties:
       VpcId: !Ref VPC
       CidrBlock: 10.1.4.0/24
-      AvailabilityZone: !Select [1, !GetAZs ] # Get the second AZ in the list
+      AvailabilityZone: !Select [3, !GetAZs ] # Get the second AZ in the list
       Tags:
         - Key: Name
           Value: !Sub ${AWS::StackName}-Public-D
