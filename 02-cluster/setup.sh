@@ -23,16 +23,19 @@ vpc:
 nodeGroups:
   - name: ng-1
     instanceType: t3.large
-    desiredCapacity: 2
+    desiredCapacity: 1
     volumeSize: 80
     ssh:
       allow: true # will use ~/.ssh/id_rsa.pub as the default ssh key
   - name: ng-2
-    instanceType: t3.large
+    instanceType: t3.medium
     desiredCapacity: 2
     volumeSize: 100
     ssh:
       publicKeyPath: ~/.ssh/id_rsa.pub
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["api", "audit", "authenticator", "controllerManager", "scheduler"]
 EOF
 
 SECONDS=0

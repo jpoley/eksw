@@ -1,1 +1,3 @@
 .DS_Store
+02-cluster/eks.yaml
+01-vpc/setup-vpc.yaml
